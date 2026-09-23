@@ -65,11 +65,12 @@ Bạn có thể đưa trang web lên Vercel làm **"URL máy chủ thử nghiệ
 
 ## 📦 Hướng dẫn Nộp bài (Theo đúng yêu cầu đề bài)
 
-Khi nộp bài thi, bạn chỉ cần gửi 2 thông tin:
+Khi nộp bài thi, đính kèm đầy đủ 2 thông tin theo đúng yêu cầu đề bài:
 1. **URL máy chủ thử nghiệm (Test Server URL):**
-   * Link Vercel đã deploy (ví dụ: `https://reanty-landing-page.vercel.app`).
-2. **Data Server (Source code):**
-   * Link GitHub Repository chứa mã nguồn, HOẶC nén thư mục này thành file `reanty-fastcoding.zip` tải lên Google Drive / đính kèm email.
+   👉 **`https://fastcodingtest-mocha.vercel.app`**
+2. **Data Server (Mã nguồn):**
+   👉 **`https://github.com/tamak4go/fastcodingtest`**
+   *(Hoặc file nén đính kèm `reanty-fastcoding.zip`)*
 
 ---
 

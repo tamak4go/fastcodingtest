@@ -14,6 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Relative Stylesheet Paths -->
+  <link rel="icon" type="image/svg+xml" href="./images/logo.svg">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -157,7 +158,9 @@
             
             <!-- Floating Revenue Card -->
             <div class="floating-card floating-card--revenue">
-              <div class="floating-card__icon" aria-hidden="true">💰</div>
+              <div class="floating-card__icon" aria-hidden="true">
+                <img src="./images/icon-revenue.svg" alt="" width="20" height="20">
+              </div>
               <div class="floating-card__body">
                 <strong class="floating-card__value">$7454.21</strong>
                 <span class="floating-card__label">Revenue</span>
@@ -304,15 +307,15 @@
             <li class="bullet-list__item">Live Music concert at Newyork</li>
           </ul>
           
-          <div class="today-sells__stepper" aria-hidden="true">
+          <div class="today-sells__stepper">
             <div class="today-sells__steps">
-              <span class="step-label">HOUSE 1</span>
-              <span class="step-label">HOUSE 2</span>
-              <span class="step-label">HOUSE 3</span>
+              <button type="button" class="step-label is-active" data-step="1" aria-label="House 1">HOUSE 1</button>
+              <button type="button" class="step-label" data-step="2" aria-label="House 2">HOUSE 2</button>
+              <button type="button" class="step-label" data-step="3" aria-label="House 3">HOUSE 3</button>
             </div>
             <div class="today-sells__line">
-              <span class="today-sells__line-bar"></span>
-              <span class="today-sells__line-num">1 2 3</span>
+              <span class="today-sells__line-bar" aria-hidden="true"></span>
+              <span class="today-sells__line-num" aria-hidden="true">1 2 3</span>
             </div>
           </div>
         </div>
@@ -697,8 +700,14 @@
                 How to rent a home very easily in this pandemic situation. You can rent house through using our platform...
               </p>
               <div class="blog-card__meta">
-                <span class="blog-card__meta-item">📅 3 years ago</span>
-                <span class="blog-card__meta-item">👤 By <strong class="blog-card__author">Mike Hesson</strong></span>
+                <span class="blog-card__meta-item">
+                  <img src="./images/icon-calendar.svg" alt="" width="14" height="14" aria-hidden="true">
+                  <span>3 years ago</span>
+                </span>
+                <span class="blog-card__meta-item">
+                  <img src="./images/icon-user.svg" alt="" width="14" height="14" aria-hidden="true">
+                  <span>By <strong class="blog-card__author">Mike Hesson</strong></span>
+                </span>
               </div>
             </div>
           </article>
@@ -717,8 +726,14 @@
                 How to rent a home very easily in this pandemic situation. You can rent house through using our platform...
               </p>
               <div class="blog-card__meta">
-                <span class="blog-card__meta-item">📅 3 years ago</span>
-                <span class="blog-card__meta-item">👤 By <strong class="blog-card__author">Mike Hesson</strong></span>
+                <span class="blog-card__meta-item">
+                  <img src="./images/icon-calendar.svg" alt="" width="14" height="14" aria-hidden="true">
+                  <span>3 years ago</span>
+                </span>
+                <span class="blog-card__meta-item">
+                  <img src="./images/icon-user.svg" alt="" width="14" height="14" aria-hidden="true">
+                  <span>By <strong class="blog-card__author">Mike Hesson</strong></span>
+                </span>
               </div>
             </div>
           </article>
@@ -737,8 +752,14 @@
                 How to rent a home very easily in this pandemic situation. You can rent house through using our platform...
               </p>
               <div class="blog-card__meta">
-                <span class="blog-card__meta-item">📅 3 years ago</span>
-                <span class="blog-card__meta-item">👤 By <strong class="blog-card__author">Mike Hesson</strong></span>
+                <span class="blog-card__meta-item">
+                  <img src="./images/icon-calendar.svg" alt="" width="14" height="14" aria-hidden="true">
+                  <span>3 years ago</span>
+                </span>
+                <span class="blog-card__meta-item">
+                  <img src="./images/icon-user.svg" alt="" width="14" height="14" aria-hidden="true">
+                  <span>By <strong class="blog-card__author">Mike Hesson</strong></span>
+                </span>
               </div>
             </div>
           </article>
@@ -908,6 +929,11 @@
     <!-- Bottom Brand Accent Line -->
     <div class="footer__accent-bar" aria-hidden="true"></div>
   </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <img src="./images/icon-arrow-up.svg" alt="" width="20" height="20" aria-hidden="true">
+  </button>
 
   <!-- Vanilla JavaScript -->
   <script src="./js/main.js"></script>

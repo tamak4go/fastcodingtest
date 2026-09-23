@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+  <!-- Gold coin with $ -->
+  <circle cx="14" cy="8" r="6" fill="#FFB800"/>
+  <circle cx="14" cy="8" r="4.8" stroke="#F59E0B" stroke-width="0.8"/>
+  <text x="14" y="11" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="8.5" font-weight="800" fill="#FFFFFF" text-anchor="middle">$</text>
+  <!-- 3 Rising Orange Bars -->
+  <rect x="6.5" y="18" width="3.5" height="7" rx="1.2" fill="#F05A35"/>
+  <rect x="12.25" y="16" width="3.5" height="9" rx="1.2" fill="#F05A35"/>
+  <rect x="18" y="14" width="3.5" height="11" rx="1.2" fill="#F05A35"/>
+</svg>

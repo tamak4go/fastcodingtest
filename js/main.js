@@ -207,8 +207,12 @@ document.addEventListener('DOMContentLoaded', () => {
      6. ACTIVE LINK ON SCROLL (SPY)
      ========================================================================= */
   const sections = document.querySelectorAll('section[id]');
+  const backToTopBtn = document.getElementById('back-to-top');
+
   window.addEventListener('scroll', () => {
-    let scrollY = window.pageYOffset;
+    const scrollY = window.pageYOffset;
+
+    // Scroll spy for navigation links
     sections.forEach(current => {
       const sectionHeight = current.offsetHeight;
       const sectionTop = current.offsetTop - 120;
@@ -223,5 +227,60 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-  });
+
+    // Floating Back to Top visibility
+    if (backToTopBtn) {
+      if (scrollY > 400) {
+        backToTopBtn.classList.add('is-visible');
+      } else {
+        backToTopBtn.classList.remove('is-visible');
+      }
+    }
+  }, { passive: true });
+
+  /* =========================================================================
+     7. FLOATING BACK TO TOP BUTTON CLICK
+     ========================================================================= */
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  /* =========================================================================
+     8. TODAY SELLS PROPERTIES STEPPER
+     ========================================================================= */
+  const stepLabels = document.querySelectorAll('.today-sells__steps .step-label');
+  const stepperBar = document.querySelector('.today-sells__line-bar');
+  const mosaicImages = document.querySelectorAll('.today-sells__mosaic img');
+
+  if (stepLabels.length) {
+    const progressMap = { '1': '35%', '2': '68%', '3': '100%' };
+
+    stepLabels.forEach(stepBtn => {
+      stepBtn.addEventListener('click', () => {
+        stepLabels.forEach(b => b.classList.remove('is-active'));
+        stepBtn.classList.add('is-active');
+
+        const step = stepBtn.getAttribute('data-step') || '1';
+        if (stepperBar && progressMap[step]) {
+          stepperBar.style.setProperty('--stepper-progress', progressMap[step]);
+        }
+
+        // Micro-animation for mosaic images
+        mosaicImages.forEach(img => {
+          img.style.opacity = '0.7';
+          img.style.transform = 'scale(0.98)';
+          setTimeout(() => {
+            img.style.opacity = '1';
+            img.style.transform = 'scale(1)';
+          }, 150);
+        });
+      });
+    });
+  }
 });
+
