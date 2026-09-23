@@ -201,10 +201,11 @@ h1, h2, h3, h4, h5, h6 {
    4. TOP BAR
    ------------------------------------------------------------------------- */
 .top-bar {
-  background-color: var(--color-dark);
-  color: #CBD5E1;
+  background-color: #08121A;
+  color: #FFFFFF;
   font-size: 13px;
-  padding: 10px 0;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .top-bar__container {
@@ -216,7 +217,7 @@ h1, h2, h3, h4, h5, h6 {
 .top-bar__info {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .top-bar__link,
@@ -224,6 +225,13 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: #FFFFFF;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.top-bar__link {
+  transition: color 0.2s ease;
 }
 
 .top-bar__link:hover {
@@ -233,7 +241,7 @@ h1, h2, h3, h4, h5, h6 {
 .top-bar__divider {
   width: 1px;
   height: 14px;
-  background-color: #334155;
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .top-bar__socials {
@@ -243,7 +251,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-bar__social-link {
-  color: #94A3B8;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -251,8 +259,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-bar__social-link:hover {
-  color: var(--color-primary);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.1);
+  filter: drop-shadow(0 2px 6px rgba(240, 90, 53, 0.4));
 }
 
 /* -------------------------------------------------------------------------
@@ -274,9 +282,12 @@ h1, h2, h3, h4, h5, h6 {
   height: 80px;
 }
 
-.main-nav__logo img {
-  height: 34px;
+.main-nav__logo img,
+.main-nav__logo svg,
+.brand-logo-svg {
+  height: 36px;
   width: auto;
+  display: block;
 }
 
 .main-nav__menu {
@@ -1691,9 +1702,12 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 60px;
 }
 
-.footer__logo img {
+.footer__logo img,
+.footer__logo svg {
   height: 32px;
+  width: auto;
   margin-bottom: 16px;
+  display: block;
 }
 
 .footer__about {

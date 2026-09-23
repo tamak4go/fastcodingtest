@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <path d="M12 28V16L22 8L32 16V28H24V20H20V28H12Z" fill="#F05A35"/>
-  <path d="M6 18L22 5L38 18L35 21L22 10.5L9 21L6 18Z" fill="#F05A35"/>
-  <text x="44" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">Reanty<tspan fill="#F05A35">.</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 42" fill="none">
+  <!-- Orange arc encircling R from Figma testsample01 -->
+  <path d="M26 6.5 A 16.5 16.5 0 1 0 26 35.5" stroke="#F05A35" stroke-width="4.2" stroke-linecap="round" fill="none"/>
+  <!-- Reanty text in white with orange dot -->
+  <text x="14" y="29.5" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="26" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5px">Reanty<tspan fill="#F05A35">.</tspan></text>
 </svg>
