@@ -32,9 +32,9 @@ test-fastcoding/
 Bạn có thể đưa trang web lên Vercel làm **"URL máy chủ thử nghiệm"** theo một trong 2 cách cực kỳ nhanh chóng:
 
 ### Cách 1: Sử dụng Vercel CLI (Nhanh nhất - dưới 1 phút)
-1. Mở Terminal (PowerShell hoặc Command Prompt) ngay tại thư mục dự án này:
+1. Mở Terminal tại thư mục dự án:
    ```bash
-   cd "c:\Users\ngtam\Downloads\test fastcoding"
+   cd reanty-fastcoding
    ```
 2. Cài đặt và chạy lệnh deploy của Vercel (nếu chưa cài):
    ```bash
