@@ -450,16 +450,12 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
 }
 
-.hero__title-dot {
-  color: var(--color-primary);
-}
-
 /* Looping curved arrow matching Figma testsample01 Hero:
-   Reaches across from under 'your country .' directly into the hero house image */
+   Starts right under 'your' and loops to link Title text directly to the House image */
 .hero__curve-arrow {
   position: absolute;
-  top: 96px;
-  right: -76px;
+  top: 104px;
+  right: -78px;
   width: 224px;
   height: auto;
   z-index: 6;
@@ -1004,6 +1000,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
+
+.today-sells__mosaic-col--large img {
   min-height: 460px;
   object-fit: cover;
   border-radius: var(--radius-md);
@@ -2083,6 +2081,10 @@ h1, h2, h3, h4, h5, h6 {
   
   .hero__title {
     font-size: 34px;
+  }
+  
+  .hero__br {
+    display: none;
   }
   
   .hero__curve-arrow {
