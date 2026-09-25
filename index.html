@@ -16,7 +16,7 @@
   <!-- Relative Stylesheet Paths -->
   <link rel="icon" type="image/svg+xml" href="./images/logo.svg">
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/style.css?v=2.1">
+  <link rel="stylesheet" href="./css/style.css?v=2.2">
 </head>
 <body>
 
@@ -173,9 +173,15 @@
                 <span>HOUSE 3</span>
               </button>
             </div>
-            <div class="hero__gallery-nav" aria-hidden="true">
-              <span class="hero__gallery-bar"></span>
-              <span class="hero__gallery-num">1 2 3</span>
+            <div class="hero__gallery-nav">
+              <div class="hero__gallery-track-bar">
+                <span class="hero__gallery-bar"></span>
+              </div>
+              <div class="hero__gallery-nums">
+                <button type="button" class="hero__num-step is-active" data-thumb="1" aria-label="Go to House 1">1</button>
+                <button type="button" class="hero__num-step" data-thumb="2" aria-label="Go to House 2">2</button>
+                <button type="button" class="hero__num-step" data-thumb="3" aria-label="Go to House 3">3</button>
+              </div>
             </div>
           </div>
         </div>
@@ -1093,6 +1099,6 @@
   </button>
 
   <!-- Vanilla JavaScript -->
-  <script src="./js/main.js"></script>
+  <script src="./js/main.js?v=2.2"></script>
 </body>
 </html>

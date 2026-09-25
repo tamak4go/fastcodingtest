@@ -45,9 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =========================================================================
-     2. HERO THUMBNAIL SWITCHER
+     2. HERO THUMBNAIL & STEPPER SWITCHER
      ========================================================================= */
   const heroThumbs = document.querySelectorAll('.hero__thumb');
+  const heroNumSteps = document.querySelectorAll('.hero__num-step');
+  const heroGalleryBar = document.querySelector('.hero__gallery-bar');
   const heroMainImg = document.querySelector('.hero__main-image');
 
   const heroImages = {
@@ -56,23 +58,53 @@ document.addEventListener('DOMContentLoaded', () => {
     '3': './images/prop-3.jpg'
   };
 
-  if (heroThumbs.length && heroMainImg) {
-    heroThumbs.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        heroThumbs.forEach(t => t.classList.remove('is-active'));
-        thumb.classList.add('is-active');
+  const heroProgressMap = { '1': '35%', '2': '70%', '3': '100%' };
 
-        const thumbId = thumb.getAttribute('data-thumb');
-        if (heroImages[thumbId]) {
-          heroMainImg.style.opacity = '0.4';
-          setTimeout(() => {
-            heroMainImg.src = heroImages[thumbId];
-            heroMainImg.style.opacity = '1';
-          }, 150);
-        }
-      });
+  function switchHeroGallery(step) {
+    if (!heroImages[step]) return;
+
+    // Update active thumbnail
+    heroThumbs.forEach(t => {
+      t.classList.toggle('is-active', t.getAttribute('data-thumb') === step);
     });
+
+    // Update active number step
+    heroNumSteps.forEach(n => {
+      n.classList.toggle('is-active', n.getAttribute('data-thumb') === step);
+    });
+
+    // Update progress bar
+    if (heroGalleryBar && heroProgressMap[step]) {
+      heroGalleryBar.style.setProperty('--hero-progress', heroProgressMap[step]);
+      heroGalleryBar.style.width = heroProgressMap[step];
+    }
+
+    // Smoothly swap hero main image
+    if (heroMainImg) {
+      heroMainImg.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+      heroMainImg.style.opacity = '0.35';
+      heroMainImg.style.transform = 'scale(0.985)';
+      setTimeout(() => {
+        heroMainImg.src = heroImages[step];
+        heroMainImg.style.opacity = '1';
+        heroMainImg.style.transform = 'scale(1)';
+      }, 150);
+    }
   }
+
+  heroThumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const step = thumb.getAttribute('data-thumb') || '1';
+      switchHeroGallery(step);
+    });
+  });
+
+  heroNumSteps.forEach(numBtn => {
+    numBtn.addEventListener('click', () => {
+      const step = numBtn.getAttribute('data-thumb') || '1';
+      switchHeroGallery(step);
+    });
+  });
 
   /* =========================================================================
      3. FEATURED PROPERTY CATEGORY TABS
