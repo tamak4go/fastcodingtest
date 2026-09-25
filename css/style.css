@@ -438,6 +438,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero__title-box {
   position: relative;
+  display: block;
 }
 
 .hero__title {
@@ -451,14 +452,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Looping curved arrow matching Figma testsample01 Hero:
-   Starts right under 'your' and loops to link Title text directly to the House image */
+   Starts right under 'your' (tail at left: 360px) and loops to link Title text directly into the House image (head) */
 .hero__curve-arrow {
-  position: absolute;
-  top: 104px;
-  right: -78px;
-  width: 224px;
-  height: auto;
-  z-index: 6;
+  position: absolute !important;
+  left: 360px;
+  top: 125px;
+  width: 226px;
+  height: 120px;
+  z-index: 10;
   pointer-events: none;
   animation: floatArrow 3.5s ease-in-out infinite alternate;
 }
@@ -1947,9 +1948,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero__curve-arrow {
-    width: 170px;
-    right: -40px;
-    top: 70px;
+    left: 280px;
+    top: 98px;
+    width: 175px;
+    height: auto;
   }
   
   .section-header__title {
@@ -2088,7 +2090,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .hero__curve-arrow {
-    display: none;
+    display: none !important;
   }
   
   .floating-card--revenue {
