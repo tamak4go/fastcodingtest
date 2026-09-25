@@ -432,16 +432,39 @@ h1, h2, h3, h4, h5, h6 {
   gap: 48px;
 }
 
+.hero__content {
+  position: relative;
+}
+
+.hero__title-box {
+  position: relative;
+}
+
 .hero__title {
   font-size: 52px;
   font-weight: 800;
   line-height: 1.18;
   margin-bottom: 20px;
   letter-spacing: -0.03em;
+  position: relative;
+  z-index: 2;
 }
 
 .hero__title-dot {
   color: var(--color-primary);
+}
+
+/* Looping curved arrow matching Figma testsample01 Hero:
+   Reaches across from under 'your country .' directly into the hero house image */
+.hero__curve-arrow {
+  position: absolute;
+  top: 96px;
+  right: -76px;
+  width: 224px;
+  height: auto;
+  z-index: 6;
+  pointer-events: none;
+  animation: floatArrow 3.5s ease-in-out infinite alternate;
 }
 
 .hero__description {
@@ -465,13 +488,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-sm);
 }
 
-.hero__curve-arrow {
-  animation: floatArrow 3s ease-in-out infinite alternate;
-}
-
 @keyframes floatArrow {
   0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(5px) rotate(4deg); }
+  100% { transform: translateY(4px) rotate(1.5deg); }
 }
 
 /* Mini thumbnail strip */
@@ -1927,6 +1946,12 @@ h1, h2, h3, h4, h5, h6 {
   
   .hero__title {
     font-size: 42px;
+  }
+
+  .hero__curve-arrow {
+    width: 170px;
+    right: -40px;
+    top: 70px;
   }
   
   .section-header__title {
