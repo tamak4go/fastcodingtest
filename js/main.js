@@ -83,6 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tabBtns.length && propCards.length) {
     tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category');
+
         tabBtns.forEach(b => {
           b.classList.remove('is-active');
           b.setAttribute('aria-selected', 'false');
@@ -91,17 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.add('is-active');
         btn.setAttribute('aria-selected', 'true');
 
-        const category = btn.getAttribute('data-category');
-
         propCards.forEach(card => {
           const cardCategory = card.getAttribute('data-category');
           if (category === 'all' || cardCategory === category) {
             card.style.display = 'block';
-            card.style.animation = 'fadeIn 0.35s ease forwards';
+            card.style.animation = 'none';
+            void card.offsetWidth; // Trigger reflow for clean re-animation
+            card.style.animation = 'fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards';
           } else {
-            // Highlight or filter based on category
-            card.style.display = 'block';
-            card.style.opacity = '0.9';
+            card.style.display = 'none';
+            card.style.animation = 'none';
           }
         });
       });
@@ -254,31 +255,88 @@ document.addEventListener('DOMContentLoaded', () => {
      8. TODAY SELLS PROPERTIES STEPPER
      ========================================================================= */
   const stepLabels = document.querySelectorAll('.today-sells__steps .step-label');
+  const numSteps = document.querySelectorAll('.today-sells__line-num .num-step');
   const stepperBar = document.querySelector('.today-sells__line-bar');
-  const mosaicImages = document.querySelectorAll('.today-sells__mosaic img');
+  const imgLarge = document.getElementById('sells-img-large');
+  const imgSmall1 = document.getElementById('sells-img-small-1');
+  const imgSmall2 = document.getElementById('sells-img-small-2');
+
+  const houseData = {
+    '1': {
+      large: { src: './images/sells-large.jpg', alt: 'Spacious modern architectural estate' },
+      small1: { src: './images/sells-small-1.jpg', alt: 'Living room interior' },
+      small2: { src: './images/sells-small-2.jpg', alt: 'Kitchen and dining area' }
+    },
+    '2': {
+      large: { src: './images/hero-house.jpg', alt: 'Luxury contemporary villa with swimming pool' },
+      small1: { src: './images/prop-2.jpg', alt: 'Bright modern architecture exterior' },
+      small2: { src: './images/prop-3.jpg', alt: 'Villa poolside lounge at twilight' }
+    },
+    '3': {
+      large: { src: './images/contact-house.jpg', alt: 'Modern luxury architectural residence' },
+      small1: { src: './images/dream-space.jpg', alt: 'Architectural patio and landscape design' },
+      small2: { src: './images/prop-1.jpg', alt: 'Elegant residential estate front view' }
+    }
+  };
+
+  const progressMap = { '1': '35%', '2': '68%', '3': '100%' };
+
+  function switchHouse(step) {
+    if (!houseData[step]) return;
+
+    stepLabels.forEach(b => {
+      b.classList.toggle('is-active', b.getAttribute('data-step') === step);
+    });
+
+    numSteps.forEach(n => {
+      n.classList.toggle('is-active', n.getAttribute('data-step') === step);
+    });
+
+    if (stepperBar && progressMap[step]) {
+      stepperBar.style.setProperty('--stepper-progress', progressMap[step]);
+    }
+
+    const imgs = [imgLarge, imgSmall1, imgSmall2].filter(Boolean);
+    imgs.forEach(img => {
+      img.style.opacity = '0.3';
+      img.style.transform = 'scale(0.97)';
+    });
+
+    setTimeout(() => {
+      const data = houseData[step];
+      if (imgLarge) {
+        imgLarge.src = data.large.src;
+        imgLarge.alt = data.large.alt;
+      }
+      if (imgSmall1) {
+        imgSmall1.src = data.small1.src;
+        imgSmall1.alt = data.small1.alt;
+      }
+      if (imgSmall2) {
+        imgSmall2.src = data.small2.src;
+        imgSmall2.alt = data.small2.alt;
+      }
+      imgs.forEach(img => {
+        img.style.opacity = '1';
+        img.style.transform = 'scale(1)';
+      });
+    }, 150);
+  }
 
   if (stepLabels.length) {
-    const progressMap = { '1': '35%', '2': '68%', '3': '100%' };
-
     stepLabels.forEach(stepBtn => {
       stepBtn.addEventListener('click', () => {
-        stepLabels.forEach(b => b.classList.remove('is-active'));
-        stepBtn.classList.add('is-active');
-
         const step = stepBtn.getAttribute('data-step') || '1';
-        if (stepperBar && progressMap[step]) {
-          stepperBar.style.setProperty('--stepper-progress', progressMap[step]);
-        }
+        switchHouse(step);
+      });
+    });
+  }
 
-        // Micro-animation for mosaic images
-        mosaicImages.forEach(img => {
-          img.style.opacity = '0.7';
-          img.style.transform = 'scale(0.98)';
-          setTimeout(() => {
-            img.style.opacity = '1';
-            img.style.transform = 'scale(1)';
-          }, 150);
-        });
+  if (numSteps.length) {
+    numSteps.forEach(numBtn => {
+      numBtn.addEventListener('click', () => {
+        const step = numBtn.getAttribute('data-step') || '1';
+        switchHouse(step);
       });
     });
   }

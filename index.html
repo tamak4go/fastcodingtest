@@ -183,7 +183,7 @@
             <!-- Floating Revenue Card -->
             <div class="floating-card floating-card--revenue">
               <div class="floating-card__icon" aria-hidden="true">
-                <img src="./images/icon-revenue.svg" alt="" width="20" height="20">
+                <img src="./images/icon-revenue.svg" alt="" width="38" height="38">
               </div>
               <div class="floating-card__body">
                 <strong class="floating-card__value">$7454.21</strong>
@@ -339,18 +339,22 @@
             </div>
             <div class="today-sells__line">
               <span class="today-sells__line-bar" aria-hidden="true"></span>
-              <span class="today-sells__line-num" aria-hidden="true">1 2 3</span>
+              <span class="today-sells__line-num" aria-label="Step indicator">
+                <span class="num-step is-active" data-step="1">1</span>
+                <span class="num-step" data-step="2">2</span>
+                <span class="num-step" data-step="3">3</span>
+              </span>
             </div>
           </div>
         </div>
         
         <div class="today-sells__mosaic">
           <div class="today-sells__mosaic-col today-sells__mosaic-col--large">
-            <img src="./images/sells-large.jpg" alt="Spacious modern architectural estate" width="340" height="480" loading="lazy">
+            <img src="./images/sells-large.jpg" alt="Spacious modern architectural estate" id="sells-img-large" width="340" height="480" loading="lazy">
           </div>
           <div class="today-sells__mosaic-col today-sells__mosaic-col--split">
-            <img src="./images/sells-small-1.jpg" alt="Living room interior" width="300" height="230" loading="lazy">
-            <img src="./images/sells-small-2.jpg" alt="Kitchen and dining area" width="300" height="230" loading="lazy">
+            <img src="./images/sells-small-1.jpg" alt="Living room interior" id="sells-img-small-1" width="300" height="230" loading="lazy">
+            <img src="./images/sells-small-2.jpg" alt="Kitchen and dining area" id="sells-img-small-2" width="300" height="230" loading="lazy">
           </div>
         </div>
       </div>
@@ -481,9 +485,9 @@
           </div>
         </div>
         
-        <!-- 3 Property Cards Grid -->
+        <!-- Property Cards Grid (Filterable by Category) -->
         <div class="featured-prop__grid" id="prop-list" role="tabpanel">
-          <!-- Property Card 1 -->
+          <!-- Appartment 1 -->
           <article class="prop-card" data-category="appartment">
             <div class="prop-card__media">
               <img src="./images/prop-1.jpg" alt="The Stokes Appartment in Cleveland" width="370" height="260" loading="lazy">
@@ -503,40 +507,160 @@
             </div>
           </article>
           
-          <!-- Property Card 2 -->
-          <article class="prop-card" data-category="vila">
+          <!-- Appartment 2 -->
+          <article class="prop-card" data-category="appartment">
             <div class="prop-card__media">
-              <img src="./images/prop-2.jpg" alt="The Stokes Appartment in Cleveland" width="370" height="260" loading="lazy">
+              <img src="./images/sells-small-2.jpg" alt="The Metropolitan Suite in New York" width="370" height="260" loading="lazy">
             </div>
             <div class="prop-card__content">
-              <h3 class="prop-card__name">The Stokes Appartment</h3>
+              <h3 class="prop-card__name">The Metropolitan Suite</h3>
               <p class="prop-card__location">
                 <img src="./images/icon-pin.svg" alt="" width="14" height="14" aria-hidden="true">
-                <span>Cleveland, United States</span>
+                <span>New York, United States</span>
               </p>
               <div class="prop-card__footer">
-                <span class="prop-card__price">$2,32,120</span>
-                <a href="#contact" class="prop-card__btn" aria-label="View The Stokes Appartment details">
+                <span class="prop-card__price">$3,15,500</span>
+                <a href="#contact" class="prop-card__btn" aria-label="View The Metropolitan Suite details">
                   <img src="./images/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true">
                 </a>
               </div>
             </div>
           </article>
           
-          <!-- Property Card 3 -->
-          <article class="prop-card" data-category="land">
+          <!-- Appartment 3 -->
+          <article class="prop-card" data-category="appartment">
             <div class="prop-card__media">
-              <img src="./images/prop-3.jpg" alt="The Stokes Appartment in Cleveland" width="370" height="260" loading="lazy">
+              <img src="./images/dream-space.jpg" alt="Skyline Horizon Loft in Chicago" width="370" height="260" loading="lazy">
             </div>
             <div class="prop-card__content">
-              <h3 class="prop-card__name">The Stokes Appartment</h3>
+              <h3 class="prop-card__name">Skyline Horizon Loft</h3>
               <p class="prop-card__location">
                 <img src="./images/icon-pin.svg" alt="" width="14" height="14" aria-hidden="true">
-                <span>Cleveland, United States</span>
+                <span>Chicago, United States</span>
               </p>
               <div class="prop-card__footer">
-                <span class="prop-card__price">$2,32,120</span>
-                <a href="#contact" class="prop-card__btn" aria-label="View The Stokes Appartment details">
+                <span class="prop-card__price">$2,78,400</span>
+                <a href="#contact" class="prop-card__btn" aria-label="View Skyline Horizon Loft details">
+                  <img src="./images/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true">
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Vila 1 -->
+          <article class="prop-card" data-category="vila" style="display: none;">
+            <div class="prop-card__media">
+              <img src="./images/prop-2.jpg" alt="The Modern Luxury Villa in Miami" width="370" height="260" loading="lazy">
+            </div>
+            <div class="prop-card__content">
+              <h3 class="prop-card__name">The Modern Luxury Villa</h3>
+              <p class="prop-card__location">
+                <img src="./images/icon-pin.svg" alt="" width="14" height="14" aria-hidden="true">
+                <span>Miami, United States</span>
+              </p>
+              <div class="prop-card__footer">
+                <span class="prop-card__price">$5,42,000</span>
+                <a href="#contact" class="prop-card__btn prop-card__btn--active" aria-label="View The Modern Luxury Villa details">
+                  <img src="./images/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true">
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Vila 2 -->
+          <article class="prop-card" data-category="vila" style="display: none;">
+            <div class="prop-card__media">
+              <img src="./images/prop-3.jpg" alt="Sunset Palm Haven Villa in Los Angeles" width="370" height="260" loading="lazy">
+            </div>
+            <div class="prop-card__content">
+              <h3 class="prop-card__name">Sunset Palm Haven Villa</h3>
+              <p class="prop-card__location">
+                <img src="./images/icon-pin.svg" alt="" width="14" height="14" aria-hidden="true">
+                <span>Los Angeles, United States</span>
+              </p>
+              <div class="prop-card__footer">
+                <span class="prop-card__price">$6,85,900</span>
+                <a href="#contact" class="prop-card__btn" aria-label="View Sunset Palm Haven Villa details">
+                  <img src="./images/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true">
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Vila 3 -->
+          <article class="prop-card" data-category="vila" style="display: none;">
+            <div class="prop-card__media">
+              <img src="./images/sells-small-1.jpg" alt="Ocean Breeze Residence in San Diego" width="370" height="260" loading="lazy">
+            </div>
+            <div class="prop-card__content">
+              <h3 class="prop-card__name">Ocean Breeze Residence</h3>
+              <p class="prop-card__location">
+                <img src="./images/icon-pin.svg" alt="" width="14" height="14" aria-hidden="true">
+                <span>San Diego, United States</span>
+              </p>
+              <div class="prop-card__footer">
+                <span class="prop-card__price">$4,95,000</span>
+                <a href="#contact" class="prop-card__btn" aria-label="View Ocean Breeze Residence details">
+                  <img src="./images/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true">
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Land 1 -->
+          <article class="prop-card" data-category="land" style="display: none;">
+            <div class="prop-card__media">
+              <img src="./images/hero-house.jpg" alt="Highland Green Valley Plot in Austin" width="370" height="260" loading="lazy">
+            </div>
+            <div class="prop-card__content">
+              <h3 class="prop-card__name">Highland Green Valley Plot</h3>
+              <p class="prop-card__location">
+                <img src="./images/icon-pin.svg" alt="" width="14" height="14" aria-hidden="true">
+                <span>Austin, United States</span>
+              </p>
+              <div class="prop-card__footer">
+                <span class="prop-card__price">$1,85,000</span>
+                <a href="#contact" class="prop-card__btn prop-card__btn--active" aria-label="View Highland Green Valley Plot details">
+                  <img src="./images/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true">
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Land 2 -->
+          <article class="prop-card" data-category="land" style="display: none;">
+            <div class="prop-card__media">
+              <img src="./images/sells-large.jpg" alt="Grand Pine Forest Acreage in Seattle" width="370" height="260" loading="lazy">
+            </div>
+            <div class="prop-card__content">
+              <h3 class="prop-card__name">Grand Pine Forest Acreage</h3>
+              <p class="prop-card__location">
+                <img src="./images/icon-pin.svg" alt="" width="14" height="14" aria-hidden="true">
+                <span>Seattle, United States</span>
+              </p>
+              <div class="prop-card__footer">
+                <span class="prop-card__price">$2,10,000</span>
+                <a href="#contact" class="prop-card__btn" aria-label="View Grand Pine Forest Acreage details">
+                  <img src="./images/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true">
+                </a>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Land 3 -->
+          <article class="prop-card" data-category="land" style="display: none;">
+            <div class="prop-card__media">
+              <img src="./images/contact-house.jpg" alt="Sunny Meadows Meadowlands in Denver" width="370" height="260" loading="lazy">
+            </div>
+            <div class="prop-card__content">
+              <h3 class="prop-card__name">Sunny Meadows Meadowlands</h3>
+              <p class="prop-card__location">
+                <img src="./images/icon-pin.svg" alt="" width="14" height="14" aria-hidden="true">
+                <span>Denver, United States</span>
+              </p>
+              <div class="prop-card__footer">
+                <span class="prop-card__price">$1,65,500</span>
+                <a href="#contact" class="prop-card__btn" aria-label="View Sunny Meadows Meadowlands details">
                   <img src="./images/icon-arrow-right.svg" alt="" width="16" height="16" aria-hidden="true">
                 </a>
               </div>
